@@ -5,5 +5,4 @@ O docker compose serve para executar o arquivo main e abrir o ambiente de execu�
 ### Comando de inicialização
 ```
 docker run -it --rm -v "${PWD}:/app" -w /app swipl swipl main.pl
-
 ```

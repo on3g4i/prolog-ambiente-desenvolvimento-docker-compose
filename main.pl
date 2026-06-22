@@ -1,2 +1,0 @@
-start:- write('Hello World').
-
