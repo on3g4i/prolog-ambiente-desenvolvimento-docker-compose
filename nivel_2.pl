@@ -17,6 +17,6 @@ linhagem(X, [X|Resto]) :- descende(X, Y),linhagem(Y, Resto).
 qtd_descendentes(X, Y, N):- descende(X, Y), N is 1.
 qtd_descendentes(X, Y, N):- descende(X, Z), qtd_descendentes(Z, Y, N1), N is N1+1.
 
-
-
+sucessores(X, Y):- descende(Y, X).
+sucessores(X, Y):- descende(Z,X), sucessores(Z,Y).
 
