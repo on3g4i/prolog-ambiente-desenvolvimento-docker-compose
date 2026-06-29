@@ -71,9 +71,6 @@ classifica_preco(V, barato) :- V < 3000, !.
 classifica_preco(V, medio)  :- V < 7000, !.
 classifica_preco(_, caro).
 
-existe_tipo(Tipo) :-
-    carro(_, Tipo, _, _).
-
 recomenda(Nome, Tipo, Ano, Potencia, Periodo, Nivel, Valor, Preco) :-
     carro(Nome, Tipo, Ano, Potencia),
     periodo(Ano, Periodo),
