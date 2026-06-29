@@ -67,8 +67,8 @@ preco_estimado(Tipo, Ano, Potencia, Valor) :-
     coef_tipo(Tipo, C),
     Valor is ((Ano + Potencia) * C) * 10.
 
-classifica_preco(V, barato) :- V < 3000, !.
-classifica_preco(V, medio)  :- V < 7000, !.
+classifica_preco(V, barato) :- V < 30000, !.
+classifica_preco(V, medio)  :- V < 70000, !.
 classifica_preco(_, caro).
 
 existe_tipo(Tipo) :-
