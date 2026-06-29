@@ -99,7 +99,7 @@ lista_recomendacoes(_, _, _) :-
 inicio :-
     write(' SISTEMA ESPECIALISTA '), nl,
 
-    write('Tipo de carro: '), read(Tipo),
+    write('Tipo de carro (economico/esportivo/luxo/eletrico): '), read(Tipo),
     write('Nivel (normal/alto/extremo): '), read(Nivel),
     write('Preco (barato/medio/caro): '), read(Preco),
 
