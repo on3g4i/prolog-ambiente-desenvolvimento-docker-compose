@@ -50,11 +50,12 @@ carro(kia_ev6, eletrico, 2022, 576).
 carro(volkswagen_id4, eletrico, 2021, 201).
 carro(ford_mustang_mach_e, eletrico, 2021, 480).
 
+
 periodo(Ano, recente) :- Ano >= 2020, !.
 periodo(Ano, medio)   :- Ano >= 2010, !.
 periodo(_, antigo).
 
-desempenho(P, extremo) :- P >= 800, !.
+desempenho(P, extremo) :- P >= 650, !.
 desempenho(P, alto)    :- P >= 300, !.
 desempenho(_, normal).
 
@@ -67,8 +68,8 @@ preco_estimado(Tipo, Ano, Potencia, Valor) :-
     coef_tipo(Tipo, C),
     Valor is ((Ano + Potencia) * C) * 10.
 
-classifica_preco(V, barato) :- V < 3000, !.
-classifica_preco(V, medio)  :- V < 7000, !.
+classifica_preco(V, barato) :- V < 50000, !.
+classifica_preco(V, medio)  :- V < 120000, !.
 classifica_preco(_, caro).
 
 recomenda(Nome, Tipo, Ano, Potencia, Periodo, Nivel, Valor, Preco) :-
@@ -79,6 +80,22 @@ recomenda(Nome, Tipo, Ano, Potencia, Periodo, Nivel, Valor, Preco) :-
     classifica_preco(Valor, Preco).
 
 
+
+lista_recomendacoes(Tipo, Nivel, Preco) :-
+    recomenda(Nome, Tipo, Ano, Potencia, Periodo, Nivel, Valor, Preco),
+    nl,
+    write('Carro: '), write(Nome), nl,
+    write('Ano: '), write(Ano), nl,
+    write('Potencia: '), write(Potencia), nl,
+    write('Valor: '), write(Valor), write('$'), nl,
+    write('Periodo: '), write(Periodo), nl,
+    write('.......................'), nl,
+    fail.
+
+lista_recomendacoes(_, _, _) :-
+    write('Fim das recomendacoes.'), nl.
+
+
 inicio :-
     write(' SISTEMA ESPECIALISTA '), nl,
 
@@ -86,12 +103,8 @@ inicio :-
     write('Nivel (normal/alto/extremo): '), read(Nivel),
     write('Preco (barato/medio/caro): '), read(Preco),
 
-    recomenda(Nome, Tipo, Ano, Potencia, Periodo, Nivel, Valor, Preco),
-
     nl,
     write(' RESULTADO '), nl,
-    write('Carro: '), write(Nome), nl,
-    write('Ano: '), write(Ano), nl,
-    write('Potencia: '), write(Potencia), nl,
-    write('Valor estimado: '), write(Valor), write('$'), nl,
-    write('Periodo: '), write(Periodo), nl.
+
+    lista_recomendacoes(Tipo, Nivel, Preco).
+
