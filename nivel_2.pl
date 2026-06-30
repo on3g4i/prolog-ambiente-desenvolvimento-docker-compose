@@ -2,14 +2,14 @@ humano(sapiens).
 humano(neandertales).
 humano(erectus).
 humano(habilis).
-humano(australoptecos).
-humano(antessesor).
+humano(australopthecus).
+humano(antecessor).
 
 descende(sapiens, neandertales).
 descende(neandertales, erectus).
 descende(erectus, habilis).
-descende(habilis, australoptecos).
-descende(australoptecos, antessesor).
+descende(habilis, australopthecus).
+descende(australopthecus, antecessor).
 
 linhagem(X, [X]) :- \+ descende(X, _).
 linhagem(X, [X|Resto]) :- descende(X, Y),linhagem(Y, Resto). 
